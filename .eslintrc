@@ -8,10 +8,10 @@
     "rules": {
         "semi": "off",
         "arrow-parens": "off",
-        "indent": "off",
-        "linebreak-style": "off",
         "require-jsdoc": "off",
-        "eol-last": "off"
+        "eol-last": "off",
+        "linebreak-style": "off",
+        "indent": "off"
     },
     "extends": "google"
 

@@ -21,11 +21,12 @@
         border: 1px solid $border-color;
         border-top: none;
         background: #f8f9fa;
+
+        position: relative;
     }
 
     .row-data {
         display: flex;
-
     }
 
     .column {
@@ -39,6 +40,8 @@
         border: 1px solid $border-color;
         border-top: 0;
         border-left: 0;
+
+        position: relative;
     }
 
     .cell {
@@ -55,8 +58,41 @@
 
         &.selected{
             border: none;
-            outline: 2px solid #3c74ff;
+            outline: 2px solid $primary-color;
             z-index: 2;
+        }
+    }
+
+    .col-resize, .row-resize {
+        background: $primary-color;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+
+        opacity: 0;
+        transition: opacity .2s ease;
+
+        &:hover {
+            opacity: 1!important;
+        }
+    }
+
+    .col-resize {
+        width: 4px;
+        top: 0;
+        
+        &:hover {
+            cursor: col-resize;
+        }
+    }
+
+    .row-resize{
+        height: 4px;
+        left: 0;
+
+        &:hover {
+            cursor: row-resize;
         }
     }
 }

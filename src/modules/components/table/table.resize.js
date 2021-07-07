@@ -37,7 +37,8 @@ export function resizeHandler(event, $root) {
 
       $resizer.css({
           opacity: 0,
-          [sideProp]: 0,
+          right: 0,
+          bottom: 0,
       })   
 
       if(type === 'col') {

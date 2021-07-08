@@ -15,7 +15,7 @@ class Dom {
     }
 
     text(text) {
-        if (typeof text === 'string') {
+        if (typeof text !== 'undefined') {
             this.$el.textContent = text
             return this
         }
@@ -84,6 +84,13 @@ class Dom {
         return $(this.$el.querySelector(selector))
     }
 
+    getStyles(styles = []) {
+        return styles.reduce((res, s) => {
+            res[s] = this.$el.style[s]
+            return res
+        }, {})
+    }
+
     id(parse) {
         if (parse) {
             const parsed = this.id().split(':')
@@ -97,8 +104,32 @@ class Dom {
     }
 
     focus() {
-        this.$el.focus()
+        this.$el.focus();
+        if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+            const range = document.createRange();
+            range.selectNodeContents(this.$el);
+            range.collapse(false);
+
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        } else if (typeof document.body.createTextRange != "undefined") {
+            const textRange = document.body.createTextRange();
+            textRange.moveToElementText(this.$el);
+            textRange.collapse(false);
+            textRange.select();
+        }
+
         return this
+    }
+
+    attr(name, value) {
+        if (value !== 'undefined') {
+            this.$el.setAttribute(name, value)
+            return this
+        }
+
+        return this.$el.getAttribute(name)
     }
 
     addClass(className) {

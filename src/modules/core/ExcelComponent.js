@@ -3,15 +3,17 @@ import { DomListener } from '@core/DomListener';
 export class ExcelComponent extends DomListener {
     constructor($root, options = {}) {
         super($root, options.listeners)
+
         this.name = options.name || ''
         this.emitter = options.emitter
+        this.store = options.store
+        this.subscribe = options.subscribe || []
         this.unSubscribers = []
         this.prepare()
     }
     
     prepare() {}
 
-    // возращает шаблон компонента
     toHTML() {
         return ''
     }
@@ -23,6 +25,16 @@ export class ExcelComponent extends DomListener {
     $on(event, fn) {
         const unsub = this.emitter.subscribe(event, fn)
         this.unSubscribers.push(unsub)
+    }
+
+    $dispatch(action) {
+        this.store.dispatch(action)
+    }
+
+    storeChanged() {}
+
+    isWatching(key) {
+        return this.subscribe.includes(key)
     }
 
     init() {

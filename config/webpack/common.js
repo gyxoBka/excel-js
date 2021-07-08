@@ -42,6 +42,7 @@ module.exports = {
     alias: {
       '@':  paths.src + '/modules',
       '@core': paths.src + '/modules/core',
+      '@redux': paths.src + '/modules/redux',
       '@assets': paths.public + '/assets',
     },
   },

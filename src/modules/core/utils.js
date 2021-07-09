@@ -56,3 +56,11 @@ export function toInlineStyles(styles = {}) {
         .map(key => `${camelCaseToDash(key)}: ${styles[key]}`)
         .join(';')
 }
+
+export function clone(obj) {
+    return JSON.parse(JSON.stringify(obj))
+}
+
+export function preventDefault(e) {
+    e.preventDefault()
+}

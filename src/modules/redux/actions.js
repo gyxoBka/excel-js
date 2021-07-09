@@ -14,6 +14,12 @@ export function changeText(data) {
   }
 }
 
+export function updateDate() {
+  return {
+    type: type.UPDATE_DATE
+  }
+}
+
 export function changeStyles(data) {
   return {
     type: type.CHANGE_STYLES,

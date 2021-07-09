@@ -23,6 +23,7 @@
     "html-loader": "^2.0.0",
     "html-webpack-plugin": "^5.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
+    "jest": "^27.0.6",
     "markdown-loader": "^6.0.0",
     "mini-css-extract-plugin": "^1.3.5",
     "sass": "^1.32.7",
@@ -36,6 +37,8 @@
     "workbox-webpack-plugin": "^6.1.0"
   },
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
     "dev": "webpack serve -c config/webpack/dev.js",
     "build": "webpack -c config/webpack/prod.js",
     "analyze": "webpack --analyze -c config/webpack/analyze.js"

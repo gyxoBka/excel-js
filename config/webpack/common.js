@@ -9,14 +9,6 @@ const Dotenv = require('dotenv-webpack')
 
 const babelLoader = {
   loader: 'babel-loader',
-  options: {
-    presets: ['@babel/preset-env'],
-    plugins: [
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-syntax-dynamic-import',
-      '@babel/plugin-transform-runtime'
-    ]
-  }
 }
 
 module.exports = {
